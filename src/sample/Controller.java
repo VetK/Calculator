@@ -78,7 +78,7 @@ public class Controller {
 
     private static String Text = "";
 
-    private static double resultat_show = 0;
+    public static double resultat_show = 0;
 
     private static String ch_1 = "0";
 
@@ -169,28 +169,36 @@ public class Controller {
         });
 
         equally.setOnAction(event -> {
+
             resultat_show = getResultat_show(vuvod);
             conclusion_2.setText(Double.toString(resultat_show));
+            display("=");
 
         });
 
         dpopping.setOnAction(event -> {
             Text = "";
             conclusion.setText(Text);
+            conclusion_2.setText(Text);
+
             resultat_show = 0;
+
+            ch_1 = "0";
+
+            indik = " ";
+
+            zahl_a = "";
+
+            vuvod = 0;
 
         });
 
         comma.setOnAction(event -> {
-            if (zahl_a.contains(".")){
-
-            }
-            else {
+            if (!zahl_a.contains(".")){
                 display(".");
                 zahl = ".";
                 zahl_a = zahl_a.concat(zahl);
             }
-
         });
 
     }
@@ -213,20 +221,14 @@ public class Controller {
                 resultat_show = number;
                 return resultat_show;
         }
-        return resultat_show;
-
+        return 0;
     }
 
     private void display (String operation){
-        if(Text.endsWith("=")){
-
-        }
-        else{
+        if(!Text.endsWith("=")){
             Text = Text.concat(operation);
             conclusion.setText(Text);
         }
-
-
     }
 
     private void disp_test(String te){
@@ -236,48 +238,23 @@ public class Controller {
     }
 
     private void symbol(String symb){         //перезаписывает математический знак и делает вычисления
-        String a1="";
-        String a2="";
-        String a3="";
 
-        {
-            if (symb == "+") {
-                a1 = "-";
-                a2 = "/";
-                a3 = "*";
-            } else if (symb == "-") {
-                a1 = "+";
-                a2 = "/";
-                a3 = "*";
-            } else if (symb == "*") {
-                a1 = "-";
-                a2 = "/";
-                a3 = "+";
-            } else if (symb == "/") {
-                a1 = "-";
-                a2 = "+";
-                a3 = "*";
-            }
+        if (Text.endsWith(symb)) {
+
         }
-
-        {
-            if (Text.endsWith(a1) || Text.endsWith(a2) || Text.endsWith(a3)) {
-                indik = symb;
-                int a = Text.length() - 1;
-                Text = Text.substring(0, a).concat(symb);
-                conclusion.setText(Text);
-            } else if (Text.endsWith(symb)) {
-                indik = symb;
-            } else {
-                display(symb);
-                zahl_a = "";
-                resultat_show = getResultat_show(vuvod);
-                indik = symb;
-                conclusion_2.setText(Double.toString(resultat_show));
-            }
+        else if (Text.endsWith("-") || Text.endsWith("+") || Text.endsWith("*") || Text.endsWith("/") || Text.endsWith("=")) {
+            indik = symb;
+            int a = Text.length() - 1;
+            Text = Text.substring(0, a).concat(symb);
+            conclusion.setText(Text);
         }
-
-
+        else {
+            display(symb);
+            zahl_a = "";
+            resultat_show = getResultat_show(vuvod);
+            indik = symb;
+            conclusion_2.setText(Double.toString(resultat_show));
+        }
     }
 
 }
