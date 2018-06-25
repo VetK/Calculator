@@ -1,6 +1,7 @@
 package sample;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -47,9 +48,6 @@ public class Controller {
     private Button dpopping;    //скинуть введенное
 
     @FXML
-    private Button pl_mi;       //вставить плюс или минус
-
-    @FXML
     private Button percent;     //процент
 
     @FXML
@@ -80,68 +78,37 @@ public class Controller {
 
     public static double resultat_show = 0;
 
-    private static String ch_1 = "0";
-
     private String indik = " ";
-
-    private String zahl;
 
     private String zahl_a = "";
 
     private double vuvod = 0;
 
+    public static void knopka(){
+
+    }
+
     @FXML
     void initialize() {
+        ArrayList<Button> numbers = new ArrayList<Button>();
+        numbers.add(zero);
+        numbers.add(one);
+        numbers.add(two);
+        numbers.add(three);
+        numbers.add(four);
+        numbers.add(five);
+        numbers.add(six);
+        numbers.add(seven);
+        numbers.add(eight);
+        numbers.add(nine);
 
-        zero.setOnAction(event -> {
-            display("0");
-            disp_test("0");
-        });
-
-        one.setOnAction(event -> {
-            display("1");
-            disp_test("1");
-        });
-
-        two.setOnAction(event -> {
-            display("2");
-            disp_test("2");
-        });
-
-        three.setOnAction(event -> {
-            display("3");
-            disp_test("3");
-        });
-
-        four.setOnAction(event -> {
-            display("4");
-            disp_test("4");
-        });
-
-        five.setOnAction(event -> {
-            display("5");
-            disp_test("5");
-        });
-
-        six.setOnAction(event -> {
-            display("6");
-            disp_test("6");
-        });
-
-        seven.setOnAction(event -> {
-            display("7");
-            disp_test("7");
-        });
-
-        eight.setOnAction(event -> {
-            display("8");
-            disp_test("8");
-        });
-
-        nine.setOnAction(event -> {
-            display("9");
-            disp_test("9");
-        });
+        for (int i=0; i<numbers.size(); i++){
+            Button b = numbers.get(i);
+            numbers.get(i).setOnAction(event -> {
+                display(b.getText());
+                disp_test(b.getText());
+            });
+        }
 
         divide.setOnAction(event -> {
             symbol("/");
@@ -169,10 +136,10 @@ public class Controller {
         });
 
         equally.setOnAction(event -> {
-
+            display("=");
+            zahl_a = "";
             resultat_show = getResultat_show(vuvod);
             conclusion_2.setText(Double.toString(resultat_show));
-            display("=");
 
         });
 
@@ -182,8 +149,6 @@ public class Controller {
             conclusion_2.setText(Text);
 
             resultat_show = 0;
-
-            ch_1 = "0";
 
             indik = " ";
 
@@ -196,8 +161,7 @@ public class Controller {
         comma.setOnAction(event -> {
             if (!zahl_a.contains(".")){
                 display(".");
-                zahl = ".";
-                zahl_a = zahl_a.concat(zahl);
+                zahl_a = zahl_a.concat(".");
             }
         });
 
@@ -232,8 +196,7 @@ public class Controller {
     }
 
     private void disp_test(String te){
-        zahl = te;
-        zahl_a = zahl_a.concat(zahl);
+        zahl_a = zahl_a.concat(te);
         vuvod = Double.valueOf(zahl_a);
     }
 
