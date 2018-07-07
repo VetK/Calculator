@@ -25,7 +25,8 @@ public class Controller {
     @FXML
     public void signs(ActionEvent event){               //для знаков "+", "-", "/", "*"
         Button button=(Button)event.getSource();
-        calcService.symbol(button.getText());
+        conclusion.setText(calcService.symbol(button.getText()));
+        //calcService.symbol(button.getText());
     }
 
     @FXML
@@ -43,7 +44,7 @@ public class Controller {
         Button button=(Button)event.getSource();
         calcService.display(button.getText());
         calcService.setZahl_a("");
-        calcService.setResultat_show(calcService.getRes(calcService.getVuvod());
+        calcService.setResultat_show(calcService.getRes(calcService.getVuvod()));
         conclusion_2.setText(Double.toString(calcService.getResultat_show()));
 
         //zahl_a = "";
@@ -78,9 +79,10 @@ public class Controller {
     @FXML
     public void btComma(ActionEvent event){               //для "."
         Button button=(Button)event.getSource();
-        if (!zahl_a.contains(button.getText())){
+        if (!calcService.getZahl_a().contains(button.getText())){
             calcService.display(button.getText());
-            zahl_a = zahl_a.concat(button.getText());
+            calcService.setZahl_a(calcService.getZahl_a().concat(button.getText()));
+            //zahl_a = zahl_a.concat(button.getText());
         }
     }
 
