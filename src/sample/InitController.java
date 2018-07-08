@@ -1,7 +1,5 @@
 package sample;
 
-//import static sample.Controller.conclusion;
-//import static sample.Controller.conclusion_2;
 
 public class InitController implements Controllable {
 
@@ -75,7 +73,6 @@ public class InitController implements Controllable {
         if(!textInput.endsWith("=")){
             textInput = textInput.concat(operation);
             return textInput;
-            //conclusion.setTextInput(textInput);
         }else{
             return "";
         }
@@ -89,7 +86,7 @@ public class InitController implements Controllable {
     public String symbol(String symb){         //перезаписывает математический знак и делает вычисления
 
         if (textInput.endsWith(symb)) {
-            return "";
+            return "ть";
         }
         else if (textInput.endsWith("-") || textInput.endsWith("+") || textInput.endsWith("*") || textInput.endsWith("/") || textInput.endsWith("=")) {
             indik = symb;
@@ -97,10 +94,9 @@ public class InitController implements Controllable {
             textInput = textInput.substring(0, a).concat(symb);
             return textInput;
 
-            //conclusion.setTextInput(textInput);
         }
         else {
-            display(symb);
+            display(symb);    //посмотреть реализацию этого метода
             zahl_a = "";
             resultat_show = getRes(vuvod);
             indik = symb;

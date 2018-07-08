@@ -12,7 +12,7 @@ public class Controller {
     private Button percent;    //процент
 
     @FXML
-    public Text conclusion;    //дисплей вывода
+    public Text conclusion;    //дисплей вывода введеных значений
 
     @FXML
     public Text conclusion_2;  //дисплей вывода результата
@@ -26,7 +26,7 @@ public class Controller {
     public void signs(ActionEvent event){               //для знаков "+", "-", "/", "*"
         Button button=(Button)event.getSource();
         conclusion.setText(calcService.symbol(button.getText()));
-        //calcService.symbol(button.getText());
+
     }
 
     @FXML
@@ -35,8 +35,6 @@ public class Controller {
         conclusion.setText(calcService.display(button.getText()));
         calcService.disp_test(button.getText());
 
-        //display(button.getTextInput());
-        //disp_test(button.getTextInput());
     }
 
     @FXML
@@ -47,9 +45,6 @@ public class Controller {
         calcService.setResultat_show(calcService.getRes(calcService.getVuvod()));
         conclusion_2.setText(Double.toString(calcService.getResultat_show()));
 
-        //zahl_a = "";
-        //resultat_show = getRes(vuvod);
-        //conclusion_2.setText(Double.toString(resultat_show));
     }
 
     @FXML
@@ -60,10 +55,6 @@ public class Controller {
         calcService.setZahl_a("");
         calcService.setVuvod(0);
 
-        //resultat_show = 0;
-        //indik = " ";
-        //zahl_a = "";
-        //vuvod = 0;
         try {
             conclusion.setText(calcService.getTextInput());
             conclusion_2.setText(calcService.getTextInput());
@@ -72,8 +63,6 @@ public class Controller {
             e.printStackTrace();
         }
 
-
-        //conclusion_2.setTextInput(textInput);
     }
 
     @FXML
@@ -82,7 +71,6 @@ public class Controller {
         if (!calcService.getZahl_a().contains(button.getText())){
             calcService.display(button.getText());
             calcService.setZahl_a(calcService.getZahl_a().concat(button.getText()));
-            //zahl_a = zahl_a.concat(button.getText());
         }
     }
 
