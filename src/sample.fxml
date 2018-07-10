@@ -1,35 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="175.0" prefWidth="120.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="175.0" prefWidth="116.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <Button fx:id="one" layoutX="2.0" layoutY="119.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="29.0" text="1" onAction="#numerics"/>
-      <Button fx:id="two" layoutX="31.0" layoutY="119.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="29.0" text="2" onAction="#numerics"/>
-      <Button fx:id="three" layoutX="60.0" layoutY="119.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="29.0" text="3" onAction="#numerics"/>
-      <Button fx:id="plus" layoutX="89.0" layoutY="119.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="29.0" text="+" onAction="#signs"/>
-      <Button fx:id="four" layoutX="2.0" layoutY="92.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="29.0" text="4" onAction="#numerics"/>
-      <Button fx:id="five" layoutX="31.0" layoutY="92.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="29.0" text="5" onAction="#numerics"/>
-      <Button fx:id="six" layoutX="60.0" layoutY="92.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="29.0" text="6" onAction="#numerics"/>
-      <Button fx:id="minus" layoutX="89.0" layoutY="92.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="29.0" text="-" onAction="#signs"/>
-      <Button fx:id="seven" layoutX="2.0" layoutY="65.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="29.0" text="7" onAction="#numerics"/>
-      <Button fx:id="eight" layoutX="31.0" layoutY="65.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="29.0" text="8" onAction="#numerics"/>
-      <Button fx:id="nine" layoutX="60.0" layoutY="65.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="29.0" text="9" onAction="#numerics"/>
-      <Button fx:id="multiply" layoutX="89.0" layoutY="65.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="29.0" text="*" onAction="#signs"/>
-      <Button fx:id="dpopping" layoutX="2.0" layoutY="38.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="58.0" text="AC" onAction="#drop" >
-         <font>
-            <Font size="10.0" />
-         </font>
-      </Button>
-      <Button fx:id="percent" layoutX="60.0" layoutY="38.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="29.0" text="\%" />
-      <Button fx:id="divide" layoutX="89.0" layoutY="38.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="29.0" text="/" onAction="#signs"/>
-      <Button fx:id="zero" layoutX="2.0" layoutY="146.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="58.0" text="0" onAction="#numerics"/>
-      <Button fx:id="equally" layoutX="89.0" layoutY="146.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="29.0" text="=" onAction="#equals"/>
-      <Button fx:id="comma" layoutX="60.0" layoutY="146.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="29.0" text="." onAction="#btComma"/>
-      <Text fx:id="conclusion" layoutX="8.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="103.21875" />
-      <Text fx:id="conclusion_2" layoutX="13.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="94.21875" />
+      <GridPane prefHeight="175.0" prefWidth="120.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="26.0" minHeight="10.0" prefHeight="23.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="28.0" minHeight="10.0" prefHeight="23.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="45.0" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="45.0" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="45.0" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="45.0" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="45.0" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <HBox prefHeight="50.0" prefWidth="126.0" GridPane.rowIndex="6">
+               <children>
+                  <Button fx:id="zero" mnemonicParsing="false" onAction="#numerics" prefHeight="27.0" prefWidth="58.0" text="0" />
+                  <Button fx:id="comma" mnemonicParsing="false" onAction="#btComma" prefHeight="27.0" prefWidth="29.0" text="." />
+                  <Button fx:id="equally" mnemonicParsing="false" onAction="#equals" prefHeight="27.0" prefWidth="29.0" text="=" />
+               </children>
+            </HBox>
+            <Text fx:id="conclusion_2" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="94.21875">
+               <GridPane.margin>
+                  <Insets left="2.0" />
+               </GridPane.margin></Text>
+            <Text fx:id="conclusion" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="103.21875" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="2.0" />
+               </GridPane.margin></Text>
+            <HBox prefHeight="71.0" prefWidth="117.0" GridPane.rowIndex="5">
+               <children>
+                  <Button fx:id="one" mnemonicParsing="false" onAction="#numerics" prefHeight="27.0" prefWidth="29.0" text="1" />
+                  <Button fx:id="two" mnemonicParsing="false" onAction="#numerics" prefHeight="27.0" prefWidth="29.0" text="2" />
+                  <Button fx:id="three" mnemonicParsing="false" onAction="#numerics" prefHeight="27.0" prefWidth="29.0" text="3" />
+                  <Button fx:id="plus" mnemonicParsing="false" onAction="#signs" prefHeight="27.0" prefWidth="29.0" text="+" />
+               </children>
+            </HBox>
+            <HBox prefHeight="20.0" prefWidth="125.0" GridPane.rowIndex="2">
+               <children>
+                  <Button fx:id="dpopping" mnemonicParsing="false" onAction="#drop" prefHeight="27.0" prefWidth="58.0" text="AC">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="percent" mnemonicParsing="false" prefHeight="27.0" prefWidth="29.0" text="\%" />
+                  <Button fx:id="divide" mnemonicParsing="false" onAction="#signs" prefHeight="27.0" prefWidth="29.0" text="/" />
+               </children>
+            </HBox>
+            <HBox prefHeight="21.0" prefWidth="126.0" GridPane.rowIndex="3">
+               <children>
+                  <Button fx:id="seven" mnemonicParsing="false" onAction="#numerics" prefHeight="27.0" prefWidth="29.0" text="7" />
+                  <Button fx:id="eight" mnemonicParsing="false" onAction="#numerics" prefHeight="27.0" prefWidth="29.0" text="8" />
+                  <Button fx:id="nine" mnemonicParsing="false" onAction="#numerics" prefHeight="27.0" prefWidth="29.0" text="9" />
+                  <Button fx:id="multiply" mnemonicParsing="false" onAction="#signs" prefHeight="27.0" prefWidth="29.0" text="*" />
+               </children>
+            </HBox>
+            <HBox prefHeight="24.0" prefWidth="117.0" GridPane.rowIndex="4">
+               <children>
+                  <Button fx:id="four" mnemonicParsing="false" onAction="#numerics" prefHeight="27.0" prefWidth="29.0" text="4" />
+                  <Button fx:id="five" mnemonicParsing="false" onAction="#numerics" prefHeight="27.0" prefWidth="29.0" text="5" />
+                  <Button fx:id="six" mnemonicParsing="false" onAction="#numerics" prefHeight="27.0" prefWidth="29.0" text="6" />
+                  <Button fx:id="minus" mnemonicParsing="false" onAction="#signs" prefHeight="27.0" prefWidth="29.0" text="-" />
+               </children>
+            </HBox>
+         </children>
+      </GridPane>
    </children>
 </AnchorPane>
