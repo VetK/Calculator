@@ -1,6 +1,6 @@
 package sample;
 
-public interface Controllable {
+public interface InitControllable {
 
     String getTextInput();
     void setTextInput(String textInput);
@@ -19,9 +19,13 @@ public interface Controllable {
 
     double getRes(double number);
 
-    String display (String operation);
+    String printDisplayInput(String operation);
 
     void disp_test(String te);
 
     String symbol(String symb);
+
+    void printComma (String comma);
+
+    void allСlear ();
 }

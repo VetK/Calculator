@@ -8,31 +8,32 @@ import javafx.scene.text.Text;
 
 public class Controller {
 
-    @FXML
-    private Button percent;    //процент
+    //@FXML
+    //private Button percent;    //процент
 
     @FXML
-    public Text conclusion;    //дисплей вывода введеных значений
+    public Text displayInput;    //дисплей вывода введеных значений
 
     @FXML
-    public Text conclusion_2;  //дисплей вывода результата
+    public Text displayOutputResult;  //дисплей вывода результата
 
-    private Controllable calcService;
-    public void setCalcService(Controllable calsService){
+    private InitControllable calcService;
+    public void setCalcService(InitControllable calsService){
         this.calcService=calsService;
     }
 
     @FXML
     public void signs(ActionEvent event){               //для знаков "+", "-", "/", "*"
         Button button=(Button)event.getSource();
-        conclusion.setText(calcService.symbol(button.getText()));
+        displayInput.setText(calcService.symbol(button.getText()));
+        displayOutputResult.setText(Double.toString(calcService.getResultat_show()));
 
     }
 
     @FXML
     public void numerics(ActionEvent event){            //для цифр 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
         Button button=(Button)event.getSource();
-        conclusion.setText(calcService.display(button.getText()));
+        displayInput.setText(calcService.printDisplayInput(button.getText()));
         calcService.disp_test(button.getText());
 
     }
@@ -40,48 +41,32 @@ public class Controller {
     @FXML
     public void equals(ActionEvent event){               //для "="
         Button button=(Button)event.getSource();
-        calcService.display(button.getText());
-        calcService.setZahl_a("");
+        calcService.printDisplayInput(button.getText());
+        //calcService.setZahl_a("");
         calcService.setResultat_show(calcService.getRes(calcService.getVuvod()));
-        conclusion_2.setText(Double.toString(calcService.getResultat_show()));
+        displayOutputResult.setText(Double.toString(calcService.getResultat_show()));
 
     }
 
     @FXML
     public void drop(){                  //для "AC"
-        calcService.setTextInput("");
-        calcService.setResultat_show(0);
-        calcService.setIndik(" ");
-        calcService.setZahl_a("");
-        calcService.setVuvod(0);
-
-        try {
-            conclusion.setText(calcService.getTextInput());
-            conclusion_2.setText(calcService.getTextInput());
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-
+        calcService.allСlear();
+        displayInput.setText(calcService.getTextInput());
+        displayOutputResult.setText(calcService.getTextInput());
     }
 
     @FXML
     public void btComma(ActionEvent event){               //для "."
         Button button=(Button)event.getSource();
-        if (!calcService.getZahl_a().contains(button.getText())){
-            calcService.display(button.getText());
-            calcService.setZahl_a(calcService.getZahl_a().concat(button.getText()));
-        }
+        calcService.printComma(button.getText());
+        //displayInput.setText(calcService.printComma(button.getText()));
     }
 
     @FXML
     void initialize() {
-        percent.setOnAction(event -> { // дописать метод для %
+        /*percent.setOnAction(event -> { // дописать метод для %
             //symbol("%");
-
-        });
-
-
+        });*/
     }
 
 }

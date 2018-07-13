@@ -1,17 +1,17 @@
 package sample;
 
 
-public class InitController implements Controllable {
+public class InitController implements InitControllable {
 
-    String textInput = "";
+    private String textInput = "";
 
-    double resultat_show = 0;
+    private double resultat_show = 0;
 
-    String indik = " ";
+    private String indik = " ";
 
-    public String zahl_a = "";
+    private String zahl_a = "";
 
-    double vuvod = 0;
+    private double vuvod = 0;
 
     public String getTextInput() {
         return textInput;
@@ -69,12 +69,13 @@ public class InitController implements Controllable {
         return 0;
     }
 
-    public String display(String operation){
+    public String printDisplayInput(String operation){
+        //zahl_a = "";
         if(!textInput.endsWith("=")){
             textInput = textInput.concat(operation);
             return textInput;
         }else{
-            return "";
+            return "=";
         }
 
     }
@@ -85,24 +86,33 @@ public class InitController implements Controllable {
 
     public String symbol(String symb){         //перезаписывает математический знак и делает вычисления
 
-        if (textInput.endsWith(symb)) {
-            return "ть";
-        }
-        else if (textInput.endsWith("-") || textInput.endsWith("+") || textInput.endsWith("*") || textInput.endsWith("/") || textInput.endsWith("=")) {
+        if (textInput.endsWith("-") || textInput.endsWith("+") || textInput.endsWith("*") || textInput.endsWith("/") || textInput.endsWith("=")) {
             indik = symb;
             int a = textInput.length() - 1;
             textInput = textInput.substring(0, a).concat(symb);
             return textInput;
-
         }
         else {
-            display(symb);    //посмотреть реализацию этого метода
             zahl_a = "";
             resultat_show = getRes(vuvod);
             indik = symb;
-            return Double.toString(resultat_show);
-
-            //conclusion_2.setTextInput(Double.toString(resultat_show));
+            return printDisplayInput(symb);
         }
     }
+
+    public void printComma(String comma){
+        if(!zahl_a.contains(comma)){
+            printDisplayInput(comma);
+            zahl_a = zahl_a.concat(comma);
+        }
+    }
+
+    public void allСlear (){
+        textInput = "";
+        resultat_show = 0;
+        indik = " ";
+        zahl_a = "";
+        vuvod = 0;
+    }
+
 }
