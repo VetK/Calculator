@@ -1,6 +1,6 @@
 package sample;
 
 public interface Calculable {
-    double calcEquals (String value);
+    double calculate(String value);
 
 }

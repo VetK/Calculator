@@ -3,9 +3,9 @@ package sample;
 
 import org.mariuszgromada.math.mxparser.*;
 
-public class Calculate implements Calculable {
+public class Calculator implements Calculable {
 
-    public double calcEquals (String value){
+    public double calculate(String value){
         Expression expression=new Expression(value);
         return expression.calculate();
     }

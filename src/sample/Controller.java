@@ -21,25 +21,25 @@ public class Controller {
         this.calcServise = calcServise;
     }
 
-    public void bCalcEquals(){                      //button for "="
-        double result = calcServise.calcEquals(displayInput.getText());
+    public void equals(){                       //button for "="
+        double result = calcServise.calculate(displayInput.getText());
         displayOutputResult.setText(Double.toString(result));
 
     }
 
-    public void bDigit(ActionEvent event){           //button for 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 and ".", "%"
+    public void digit(ActionEvent event){           //button for 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 and ".", "%"
         Button button = (Button) event.getSource();
         this.inputText = inputText.concat(button.getText());
         displayInput.setText(inputText);
     }
 
-    public void bDrop(){                             //button for "AC"
+    public void drop(){                             //button for "AC"
         displayInput.setText("");
         displayOutputResult.setText("");
         this.inputText = "";
     }
 
-    public void bDelete(){                           //button delete the last symbol in display of the output of the entered values
+    public void delete(){                           //button delete the last symbol in display of the output of the entered values
         deleteLastSymbol();
         displayInput.setText(inputText);
     }
