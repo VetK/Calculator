@@ -10,20 +10,17 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-
         FXMLLoader loader=new FXMLLoader(getClass().getResource("../sample.fxml"));
         AnchorPane group = loader.load();
-        Controller controller=loader.getController();
-        controller.setCalcService(new InitController());
         primaryStage.setTitle("Calculator");
-
+        Controller controller = loader.getController();
+        controller.setCalcServise(new Calculate());
         Scene scene=new Scene(group, 116, 175);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
 
     public static void main(String[] args) {
-
         launch(args);
     }
 }
