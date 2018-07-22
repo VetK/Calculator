@@ -20,14 +20,9 @@ public class Controller {
     }
 
     @FXML
-    public void bCalcEquals(ActionEvent event){                      //for "="
+    public void bCalcEquals(){                      //for "="
         double result = calcServise.calcEquals(displayInput.getText());
         displayOutputResult.setText(Double.toString(result));
-
-
-        Button button = (Button) event.getSource();
-        String text = calcServise.printDisplayInput(button.getText());
-        displayInput.setText(text);
 
     }
 
@@ -43,10 +38,9 @@ public class Controller {
         calcServise.setInputText("");
     }
 
-    public void delete(){
+    public void bDelete(){
         calcServise.deleteLastSymbol();
         displayInput.setText(calcServise.getInputText());
     }
-
 
 }

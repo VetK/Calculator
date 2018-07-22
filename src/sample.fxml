@@ -48,7 +48,7 @@
                   <Button fx:id="dpopping" text="AC" onAction="#drop"/>
                   <Button fx:id="percent" text="\%" onAction="#digit"/>
                   <Button fx:id="divide" text="/" onAction="#digit"/>
-                   <Button text="del" onAction="#delete"/>
+                   <Button text="del" onAction="#bDelete"/>
                </children>
             </HBox>
          </children>
