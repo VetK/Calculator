@@ -15,7 +15,7 @@ public class Main extends Application {
         primaryStage.setTitle("Calculator");
         Controller controller = loader.getController();
         controller.setCalcServise(new Calculate());
-        Scene scene=new Scene(group, 116, 175);
+        Scene scene=new Scene(group, 125, 175);
         primaryStage.setScene(scene);
         primaryStage.show();
     }

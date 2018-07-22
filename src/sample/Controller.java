@@ -1,6 +1,8 @@
 package sample;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 
 public class Controller {
@@ -18,9 +20,33 @@ public class Controller {
     }
 
     @FXML
-    public void bCalcEquals(){                      //for "="
+    public void bCalcEquals(ActionEvent event){                      //for "="
         double result = calcServise.calcEquals(displayInput.getText());
         displayOutputResult.setText(Double.toString(result));
 
+
+        Button button = (Button) event.getSource();
+        String text = calcServise.printDisplayInput(button.getText());
+        displayInput.setText(text);
+
     }
+
+    public void digit(ActionEvent event){           //for 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 and "."
+        Button button = (Button) event.getSource();
+        String text = calcServise.printDisplayInput(button.getText());
+        displayInput.setText(text);
+    }
+
+    public void drop(){                             //for "AC"
+        displayInput.setText("");
+        displayOutputResult.setText("");
+        calcServise.setInputText("");
+    }
+
+    public void delete(){
+        calcServise.deleteLastSymbol();
+        displayInput.setText(calcServise.getInputText());
+    }
+
+
 }
