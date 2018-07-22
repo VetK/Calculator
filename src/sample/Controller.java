@@ -8,39 +8,47 @@ import javafx.scene.text.Text;
 public class Controller {
 
     @FXML
-    public Text displayInput;                       //display of the output of the entered value
+    public Text displayInput;                       //display of the output of the entered values
 
     @FXML
     public Text displayOutputResult;                //display of the output of the result
 
     private Calculable calcServise;
 
+    private String inputText = "";
+
     public void setCalcServise (Calculable calcServise){
         this.calcServise = calcServise;
     }
 
-    @FXML
-    public void bCalcEquals(){                      //for "="
+    public void bCalcEquals(){                      //button for "="
         double result = calcServise.calcEquals(displayInput.getText());
         displayOutputResult.setText(Double.toString(result));
 
     }
 
-    public void digit(ActionEvent event){           //for 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 and "."
+    public void bDigit(ActionEvent event){           //button for 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 and ".", "%"
         Button button = (Button) event.getSource();
-        String text = calcServise.printDisplayInput(button.getText());
-        displayInput.setText(text);
+        this.inputText = inputText.concat(button.getText());
+        displayInput.setText(inputText);
     }
 
-    public void drop(){                             //for "AC"
+    public void bDrop(){                             //button for "AC"
         displayInput.setText("");
         displayOutputResult.setText("");
-        calcServise.setInputText("");
+        this.inputText = "";
     }
 
-    public void bDelete(){
-        calcServise.deleteLastSymbol();
-        displayInput.setText(calcServise.getInputText());
+    public void bDelete(){                           //button delete the last symbol in display of the output of the entered values
+        deleteLastSymbol();
+        displayInput.setText(inputText);
+    }
+
+    public void deleteLastSymbol(){
+        if (inputText.length() != 0){
+            inputText = inputText.substring(0, inputText.length()-1);
+        }
+
     }
 
 }
