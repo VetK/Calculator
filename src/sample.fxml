@@ -14,41 +14,41 @@
             <Text fx:id="displayInput" GridPane.rowIndex="1" />
              <HBox GridPane.rowIndex="6">
                  <children>
-                     <Button fx:id="zero" text="0" onAction="#digit"/>
-                     <Button fx:id="comma" text="." onAction="#digit"/>
-                     <Button fx:id="equally" text="=" onAction="#equals"/>
+                     <Button text="0" onAction="#digit"/>
+                     <Button text="." onAction="#digit"/>
+                     <Button text="=" onAction="#equals"/>
                  </children>
              </HBox>
             <HBox GridPane.rowIndex="5">
                <children>
-                  <Button fx:id="one" text="1" onAction="#digit"/>
-                  <Button fx:id="two" text="2" onAction="#digit"/>
-                  <Button fx:id="three" text="3" onAction="#digit"/>
-                  <Button fx:id="plus" text="+" onAction="#digit"/>
+                  <Button text="1" onAction="#digit"/>
+                  <Button text="2" onAction="#digit"/>
+                  <Button text="3" onAction="#digit"/>
+                  <Button text="+" onAction="#digit"/>
                </children>
             </HBox>
              <HBox GridPane.rowIndex="4">
                  <children>
-                     <Button fx:id="four" text="4" onAction="#digit"/>
-                     <Button fx:id="five" text="5" onAction="#digit"/>
-                     <Button fx:id="six" text="6" onAction="#digit"/>
-                     <Button fx:id="minus" text="-" onAction="#digit"/>
+                     <Button text="4" onAction="#digit"/>
+                     <Button text="5" onAction="#digit"/>
+                     <Button text="6" onAction="#digit"/>
+                     <Button text="-" onAction="#digit"/>
                  </children>
              </HBox>
              <HBox GridPane.rowIndex="3">
                  <children>
-                     <Button fx:id="seven" text="7" onAction="#digit"/>
-                     <Button fx:id="eight" text="8" onAction="#digit"/>
-                     <Button fx:id="nine" text="9" onAction="#digit"/>
-                     <Button fx:id="multiply" text="*" onAction="#digit"/>
+                     <Button text="7" onAction="#digit"/>
+                     <Button text="8" onAction="#digit"/>
+                     <Button text="9" onAction="#digit"/>
+                     <Button text="*" onAction="#digit"/>
                  </children>
              </HBox>
             <HBox GridPane.rowIndex="2">
                <children>
-                  <Button fx:id="dpopping" text="AC" onAction="#drop"/>
-                  <Button fx:id="percent" text="\%" onAction="#digit"/>
-                  <Button fx:id="divide" text="/" onAction="#digit"/>
-                   <Button text="del" onAction="#delete"/>
+                  <Button text="AC" onAction="#drop"/>
+                  <Button text="\%" onAction="#digit"/>
+                  <Button text="/" onAction="#digit"/>
+                  <Button text="del" onAction="#delete"/>
                </children>
             </HBox>
          </children>
