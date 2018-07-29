@@ -1,6 +1,5 @@
 package sample;
 
-import Parser.MathParser;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -24,13 +23,7 @@ public class Controller {
 
     public void equals(){                           //button for "="
         double result = calcServise.calculate(displayInput.getText());
-        if(MathParser.flag){
-            displayOutputResult.setText(Double.toString(result));
-        }
-        else{
-            displayOutputResult.setText("Incorrect expression!");
-        }
-
+        displayOutputResult.setText(Double.toString(result));
 
     }
 
