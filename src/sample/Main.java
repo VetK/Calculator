@@ -14,7 +14,7 @@ public class Main extends Application {
         AnchorPane group = loader.load();
         primaryStage.setTitle("Calculator");
         Controller controller = loader.getController();
-        controller.setCalcServise(new Calculator_2());            //Calculator
+        controller.setCalcServise(new Calculator());
         Scene scene=new Scene(group, 125, 175);
         primaryStage.setScene(scene);
         primaryStage.show();
